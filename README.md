@@ -12,4 +12,6 @@ temp/ restore/ file1.txt 2.txt 12file.txt /zzz 1234 9823 982a 324v5
 
 #!/bin/bash
 
-tar -czvf arch.tar.gz [0-9][0-9][0-9][0-9]* | while read I ; do rmdir "$I" ; done
+when=$(date '+%Y-%m-%d')
+
+tar -czvf $when.tar.gz [0-9][0-9][0-9][0-9]* | while read I ; do rm -rf "$I" ; done
