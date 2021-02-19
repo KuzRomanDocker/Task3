@@ -4,7 +4,7 @@ pipeline {
         stage('build') {
             steps {
               sh '''#!/bin/bash
-                    echo 'run task3'                    
+                    echo "run task3"                    
                    '''
             }
         }
