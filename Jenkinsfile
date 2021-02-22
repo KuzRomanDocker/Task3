@@ -4,7 +4,8 @@ pipeline {
         stage('build') {
             steps {
               sh '''#!/bin/bash
-                    echo "Build Task3"                    
+                    echo "${env.J_EMAIL}"
+                    echo "${env.J_USERNAME}"
                    '''
             }
         }
