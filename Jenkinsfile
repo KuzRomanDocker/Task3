@@ -12,8 +12,8 @@ pipeline {
                     git config user.email ${BUILD_REQUESTEDFOREMAIL}
                     git config user.name ${BUILD_REQUESTEDFOR}
                     # push tag
-                    git tag -a ${env.BUILD_NUMBER} -m "Released by ${env.DEPLOY_VERSION}"
-                    git push origin ${env.BUILD_NUMBER}
+                    git tag -a $$BUILD_ID -m "Released by ${BUILD_REQUESTEDFOR}"
+                    git push origin $$BUILD_ID
                    '''
             }
         }
