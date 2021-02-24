@@ -5,7 +5,7 @@ pipeline {
             steps {
               sh '''#!/bin/bash
                     echo $BUILD_ID
-                    echo ${BUILD_REQUESTEDFOREMAIL}
+                    echo $GIT_COMMITTER_EMAIL
                    '''
             }
         }
