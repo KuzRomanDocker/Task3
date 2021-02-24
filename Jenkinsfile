@@ -5,7 +5,7 @@ pipeline {
             steps {
               sh '''#!/bin/bash
                     echo $BUILD_ID
-                    #echo "${env.J_USERNAME}"
+                    echo $J_USERNAME
                    '''
             }
         }
