@@ -8,11 +8,13 @@ pipeline {
             }
             steps {
               sh '''#!/bin/bash
-                    echo "BUILD_BUILDNUMBER $BUILD_ID"
-                    echo "GIT_COMMITTER_EMAIL ${BUILD_REQUESTEDFOREMAIL}"
-                    echo "GIT_COMMITTER_Name ${BUILD_REQUESTEDFOR}"
+                    # set github user
+                    git config user.email ${BUILD_REQUESTEDFOREMAIL}
+                    git config user.name ${BUILD_REQUESTEDFOR}
+                    # push tag
+                    git tag -a ${env.BUILD_NUMBER} -m "Released by ${env.DEPLOY_VERSION}"
+                    git push origin ${env.BUILD_NUMBER}
                    '''
             }
         }
     }
-}
