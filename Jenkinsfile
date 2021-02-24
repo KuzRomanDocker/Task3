@@ -8,7 +8,7 @@ pipeline {
                 }
               sh '''#!/bin/bash
                     echo $BUILD_ID
-                    echo GIT_COMMITTER_EMAIL %GIT_COMMITTER_EMAIL%
+                    echo GIT_COMMITTER_EMAIL ${committerEmail}
                    '''
             }
         }
