@@ -3,8 +3,8 @@ pipeline {
     stages {
         stage('PROD') {
             environment {
-                committerEmail = sh (script: 'git --no-pager show -s --format=\'%ce\'', returnStdout: true).trim()
-                committerName = sh (script: 'git --no-pager show -s --format=\'%cn\'', returnStdout: true).trim()
+                committerEmail = sh (script: 'git --no-pager show -s --format=\'%ae\'', returnStdout: true).trim()
+                committerName = sh (script: 'git --no-pager show -s --format=\'%an\'', returnStdout: true).trim()
             }
             steps {
               sh '''#!/bin/bash
