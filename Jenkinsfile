@@ -14,6 +14,7 @@ pipeline {
                     # push tag
                     git tag -a $BUILD_ID -m "Released by ${BUILD_REQUESTEDFOR}"
                     #git push origin $BUILD_ID
+                    git remote -v
                    '''
             }
         }
