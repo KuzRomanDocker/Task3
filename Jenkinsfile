@@ -7,7 +7,6 @@ pipeline {
                 BUILD_REQUESTEDFOR = sh (script: 'git --no-pager show -s --format=\'%an\'', returnStdout: true).trim()
             }
             steps {
-              git credentialsId: 'd017afeb-dcf8-4f4a-b73c-07d793e4628a', url: 'https://github.com/KuzRomanDocker/PROD.git'
               sh '''#!/bin/bash
                     git clone --bare https://github.com/KuzRomanDocker/Task3.git
                     MSG=$(git log -1 --format=%B)
