@@ -9,8 +9,17 @@ pipeline {
             steps {
               sh '''#!/bin/bash
                     git clone --bare https://github.com/KuzRomanDocker/Task3.git
+                    MSG=$(git log -1 --format=%B)
+                    mkdir PROD
+                    rsync -avr --exclude='.git' --exclude='.github' --exclude='Jenkinsfile'--delete Task3.git/. PROD
+                    cd PROD
+                    git checkout release-candidate
                     git config user.email ${BUILD_REQUESTEDFOREMAIL}
                     git config user.name ${BUILD_REQUESTEDFOR}
+                    git add .
+                    git commit -m "${MSG}"
+                    git tag -a $BUILD_ID -m "Released by ${BUILD_REQUESTEDFOR}"
+                    #git push
                    '''
             }
         }
