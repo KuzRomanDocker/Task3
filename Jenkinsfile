@@ -9,8 +9,6 @@ pipeline {
             steps {
               sh '''#!/bin/bash
                     # set github user
-                    git config --global credential.helper cache
-                    git config --global credential.helper 'cache --timeout=3600
                     git config user.email ${BUILD_REQUESTEDFOREMAIL}
                     git config user.name ${BUILD_REQUESTEDFOR}
                     git remote -v
