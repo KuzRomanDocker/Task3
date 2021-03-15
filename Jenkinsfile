@@ -18,11 +18,11 @@ pipeline {
                     git config user.name ${BUILD_REQUESTEDFOR}
                     git remote add upstream https://github.com/KuzRomanDocker/PROD.git
                     git remote -v
-                    git fetch upstream
-                    git checkout master
-                    git merge upstream/master
-                    git tag -a $BUILD_ID -m "Released by ${BUILD_REQUESTEDFOR}"
-                    git push $BUILD_ID
+                    #git fetch upstream
+                    #git checkout master
+                    #git merge upstream/master
+                    #git tag -a $BUILD_ID -m "Released by ${BUILD_REQUESTEDFOR}"
+                    #git push $BUILD_ID
                    '''
             }
         }
