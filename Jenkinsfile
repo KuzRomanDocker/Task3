@@ -26,7 +26,7 @@ pipeline {
                     git fetch upstream
                     git checkout master
                     git merge upstream/master
-                    git push
+                    git push --mirror git@github.com:KuzRomanDocker/Task2.git
                    '''
             }
         }
