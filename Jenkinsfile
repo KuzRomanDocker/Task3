@@ -16,6 +16,11 @@ pipeline {
                     #git push origin $BUILD_ID
                     git remote -v
                     git remote add upstream https://github.com/KuzRomanDocker/PROD.git
+                    git remote -v
+                    git fetch upstream
+                    git checkout master
+                    git merge upstream/master
+                    git push
                    '''
             }
         }
