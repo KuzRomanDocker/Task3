@@ -8,6 +8,8 @@ pipeline {
             }
             steps {
               sh '''#!/bin/bash
+                    cd https://github.com/KuzRomanDocker/PROD
+                    ls
                     git config --global credential.helper cache
                     git config --global credential.helper 'cache --timeout=3600
                     git remote -v
