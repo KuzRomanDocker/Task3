@@ -11,7 +11,7 @@ pipeline {
               sh '''#!/bin/bash
                     git clone --bare https://github.com/KuzRomanDocker/Task3.git
                     mkdir PROD
-                    rsync -avr --exclude='.git' --exclude='.github' --exclude='Jenkinsfile'--delete Task3.git PROD
+                    rsync -avr --exclude='.git' --exclude='.github' --exclude='Jenkinsfile'--delete Task3.git/. PROD
                     cd PROD
                     git checkout release-candidate
                     git config user.email ${BUILD_REQUESTEDFOREMAIL}
