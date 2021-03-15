@@ -9,7 +9,7 @@ pipeline {
             steps {
               sh '''#!/bin/bash
                     git remote -v
-                    git remote add upstream git@github.com:KuzRomanDocker/PROD.git
+                    git remote add upstream https://github.com/KuzRomanDocker/PROD.git
                     git remote -v
                     # set github user
                     git config user.email ${BUILD_REQUESTEDFOREMAIL}
