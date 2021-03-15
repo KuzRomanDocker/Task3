@@ -10,6 +10,7 @@ pipeline {
               git credentialsId: 'd017afeb-dcf8-4f4a-b73c-07d793e4628a', url: 'https://github.com/KuzRomanDocker/PROD.git'
               sh '''#!/bin/bash
                     git clone --bare https://github.com/KuzRomanDocker/Task3.git
+                    MSG=$(git log -1 --format=%B)
                     mkdir PROD
                     rsync -avr --exclude='.git' --exclude='.github' --exclude='Jenkinsfile'--delete Task3.git/. PROD
                     cd PROD
@@ -17,12 +18,10 @@ pipeline {
                     git config user.email ${BUILD_REQUESTEDFOREMAIL}
                     git config user.name ${BUILD_REQUESTEDFOR}
                     git remote add upstream https://github.com/KuzRomanDocker/PROD.git
-                    git remote -v
-                    #git fetch upstream
-                    #git checkout master
-                    #git merge upstream/master
-                    #git tag -a $BUILD_ID -m "Released by ${BUILD_REQUESTEDFOR}"
-                    #git push $BUILD_ID
+                    git add .
+                    git commit -m "${MSG}"
+                    git tag -a $BUILD_ID -m "Released by ${BUILD_REQUESTEDFOR}"
+                    git push $BUILD_ID
                    '''
             }
         }
