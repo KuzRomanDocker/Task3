@@ -8,7 +8,7 @@ pipeline {
             }
             steps {
               sh '''#!/bin/bash
-                    cd https://github.com/KuzRomanDocker/PROD
+                    cd https://github.com/KuzRomanDocker/Task2
                     ls
                     git config --global credential.helper cache
                     git config --global credential.helper 'cache --timeout=3600
