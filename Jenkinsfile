@@ -11,8 +11,7 @@ pipeline {
               sh '''#!/bin/bash
                     git clone --bare https://github.com/KuzRomanDocker/Task3.git
                     cd Task3
-                    rsync -avr --exclude='.git' --exclude='.github' --exclude='Jenkinsfile'--delete Task3 target-repo
-                    cd target-repo
+                    rsync -avr --exclude='.git' --exclude='.github' --exclude='Jenkinsfile'--delete Task3 PROD
                     git checkout release-candidate
                     git config user.email ${BUILD_REQUESTEDFOREMAIL}
                     git config user.name ${BUILD_REQUESTEDFOR}
