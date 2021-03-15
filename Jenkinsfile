@@ -17,9 +17,8 @@ pipeline {
                     git fetch upstream
                     git checkout master
                     git merge upstream/master
-                    # push tag
                     git tag -a $BUILD_ID -m "Released by ${BUILD_REQUESTEDFOR}"
-                    #git push origin $BUILD_ID
+                    git push origin $BUILD_ID
                    '''
             }
         }
