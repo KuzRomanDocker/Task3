@@ -8,16 +8,14 @@ pipeline {
             }
             steps {
               sh '''#!/bin/bash
-                    cd https://github.com/KuzRomanDocker/Task2
-                    ls
+                    # set github user
                     git config --global credential.helper cache
                     git config --global credential.helper 'cache --timeout=3600
+                    git config user.email ${BUILD_REQUESTEDFOREMAIL}
+                    git config user.name ${BUILD_REQUESTEDFOR}
                     git remote -v
                     git remote add upstream https://github.com/KuzRomanDocker/PROD.git
                     git remote -v
-                    # set github user
-                    git config user.email ${BUILD_REQUESTEDFOREMAIL}
-                    git config user.name ${BUILD_REQUESTEDFOR}
                     git fetch upstream
                     git checkout master
                     git merge upstream/master
