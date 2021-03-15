@@ -8,19 +8,18 @@ pipeline {
             }
             steps {
               sh '''#!/bin/bash
-                    # set github user
-                    git config user.email ${BUILD_REQUESTEDFOREMAIL}
-                    git config user.name ${BUILD_REQUESTEDFOR}
-                    # push tag
-                    git tag -a $BUILD_ID -m "Released by ${BUILD_REQUESTEDFOR}"
-                    #git push origin $BUILD_ID
                     git remote -v
                     git remote add upstream git@github.com:KuzRomanDocker/PROD.git
                     git remote -v
+                    # set github user
+                    git config user.email ${BUILD_REQUESTEDFOREMAIL}
+                    git config user.name ${BUILD_REQUESTEDFOR}
                     git fetch upstream
                     git checkout master
                     git merge upstream/master
-                    git push
+                    # push tag
+                    git tag -a $BUILD_ID -m "Released by ${BUILD_REQUESTEDFOR}"
+                    #git push origin $BUILD_ID
                    '''
             }
         }
