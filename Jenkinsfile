@@ -11,6 +11,7 @@ pipeline {
                     # set github user
                     git config user.email ${BUILD_REQUESTEDFOREMAIL}
                     git config user.name ${BUILD_REQUESTEDFOR}
+                    git credentialsId: 'd017afeb-dcf8-4f4a-b73c-07d793e4628a', url: 'https://github.com/KuzRomanDocker/PROD
                     git remote -v
                     git remote add upstream https://github.com/KuzRomanDocker/PROD.git
                     git remote -v
