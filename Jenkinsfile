@@ -10,7 +10,9 @@ pipeline {
               git credentialsId: 'd017afeb-dcf8-4f4a-b73c-07d793e4628a', url: 'https://github.com/KuzRomanDocker/PROD.git'
               sh '''#!/bin/bash
                     git clone --bare https://github.com/KuzRomanDocker/Task3.git
-                    rsync -avr --exclude='.git' --exclude='.github' --exclude='Jenkinsfile'--delete Task3 PROD
+                    mkdir PROD
+                    rsync -avr --exclude='.git' --exclude='.github' --exclude='Jenkinsfile'--delete Task3.git PROD
+                    cd PROD
                     git checkout release-candidate
                     git config user.email ${BUILD_REQUESTEDFOREMAIL}
                     git config user.name ${BUILD_REQUESTEDFOR}
