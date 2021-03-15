@@ -8,7 +8,7 @@ pipeline {
                    }
             steps {
               sh '''#!/bin/bash
-                    git clone --bare https://github.com/KuzRomanDocker/Task3.git
+                    git clone https://github.com/KuzRomanDocker/Task3.git
                     MSG=$(git log -1 --format=%B)
                     mkdir PROD
                     rsync -avr --exclude='.git' --exclude='.github' --exclude='Jenkinsfile'--delete Task3.git/. PROD
