@@ -8,7 +8,7 @@ pipeline {
                    }
             steps {
                     git remote -v
-                    git remote add upstream https://github.com/KuzRomanDocker/Task2.git
+                    git remote add upstream 'https://github.com/KuzRomanDocker/Task2.git'
                     git remote -v
                     git fetch upstream
                     git checkout master
