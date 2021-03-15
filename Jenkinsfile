@@ -2,17 +2,23 @@ pipeline {
     agent { label 'master' }
     stages {
         stage('PROD') {
+            environment {
+                BUILD_REQUESTEDFOREMAIL = sh (script: 'git --no-pager show -s --format=\'%ae\'', returnStdout: true).trim()
+                BUILD_REQUESTEDFOR = sh (script: 'git --no-pager show -s --format=\'%an\'', returnStdout: true).trim()
+            }
             steps {
               sh '''#!/bin/bash
                     git clone https://github.com/KuzRomanDocker/Task3.git
-                    mkdir Task2
                     MSG=$(git log -1 --format=%B)
-                    rsync -avr --exclude='.github' --exclude='Jenkinsfile' --delete Task3/. Task2
-                    cd Task2
+                    mkdir PROD
+                    rsync -avr --exclude='.github' --exclude='Jenkinsfile' --delete Task3/. PROD
+                    cd PROD
+                    git config user.email ${BUILD_REQUESTEDFOREMAIL}
+                    git config user.name ${BUILD_REQUESTEDFOR}
                     git add .
                     git commit -m "${MSG}"
                     git tag -a $BUILD_ID -m "Released by ${BUILD_REQUESTEDFOR}"
-                    git push --mirror git@github.com:KuzRomanDocker/Test.git
+                    git push --mirror git@github.com:KuzRomanDocker/TEST2.git
                    '''
             }
         }
