@@ -17,11 +17,11 @@ pipeline {
                     git checkout release-candidate
                     git config user.email ${BUILD_REQUESTEDFOREMAIL}
                     git config user.name ${BUILD_REQUESTEDFOR}
-                    git remote add upstream https://github.com/KuzRomanDocker/PROD.git
+                    git remote add origin https://github.com/KuzRomanDocker/PROD.git
                     git add .
                     git commit -m "${MSG}"
                     git tag -a $BUILD_ID -m "Released by ${BUILD_REQUESTEDFOR}"
-                    git push $BUILD_ID
+                    git push -u origin master
                    '''
             }
         }
