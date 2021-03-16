@@ -19,7 +19,7 @@ pipeline {
                     git add .
                     git commit -m "${MSG}"
                     git tag -a $BUILD_ID -m "Released by ${BUILD_REQUESTEDFOR}"
-                    git push origin $BUILD_ID
+                    git push --mirror git@github.com:KuzRomanDocker/TEST2.git
                    '''
             }
         }
