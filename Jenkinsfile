@@ -13,7 +13,10 @@ pipeline {
                     rsync -avr --exclude='.git' --exclude='.github' --exclude='Jenkinsfile' --delete Task3/. TEST2
                     cd TEST2
                     MSG=$(git log -1 --format=%B)
-                    echo $MSG
+                    echo {$MSG}
+                    echo ${BUILD_REQUESTEDFOREMAIL}
+                    echo "Hello
+                    echo ${BUILD_REQUESTEDFOR}
                     git config user.email ${BUILD_REQUESTEDFOREMAIL}
                     git config user.name ${BUILD_REQUESTEDFOR}
                     git add .
