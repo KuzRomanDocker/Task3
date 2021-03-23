@@ -16,6 +16,7 @@ pipeline {
                     echo "Hello Roman ${MSG}"
                     git config user.email ${BUILD_REQUESTEDFOREMAIL}
                     git config user.name ${BUILD_REQUESTEDFOR}
+                    git add .
                     git commit -m "${MSG}"
                     git tag -a $BUILD_ID -m "Released by ${BUILD_REQUESTEDFOR}"
                     git push --mirror git@github.com:KuzRomanDocker/TEST.git
