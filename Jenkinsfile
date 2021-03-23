@@ -8,18 +8,21 @@ pipeline {
             }
             steps {
               sh '''#!/bin/bash
-                    cd ../source-repo
-                    MSG=$(git log -1 --format=%B)
+                    git clone https://github.com/KuzRomanDocker/Task3.git
+                    git clone https://github.com/KuzRomanDocker/Task2.git
                     cd ..
-                    rsync -avr --exclude='.git' --exclude='.github' --delete source-repo/. target-repo
-                    cd target-repo
-                    git checkout release-candidate
+                    rsync -avr --exclude='.git' --exclude='.github' --delete sTask3./. Task2
+                    cd Task2
+                    MSG=$(git log -1 --format=%B)
+                    echo ${MSG}
                     git config user.email ${BUILD_REQUESTEDFOREMAIL}
                     git config user.name ${BUILD_REQUESTEDFOR}
-                    git add .
                     git commit -m "${MSG}"
-                    git push"
-                   '''
+                    git tag -a $BUILD_ID -m "Released by ${BUILD_REQUESTEDFOR}"
+                    git push --mirror git@github.com:KuzRomanDocker/Task2.git
+                    rm -f /Task3
+                    rm -f /Task2
+                    '''
             }
         }
     }
