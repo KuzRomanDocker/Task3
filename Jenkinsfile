@@ -9,19 +9,19 @@ pipeline {
             steps {
               sh '''#!/bin/bash
                     git clone https://github.com/KuzRomanDocker/Task3.git
-                    git clone https://github.com/KuzRomanDocker/Task2.git
+                    git clone https://github.com/KuzRomanDocker/TEST.git
                     cd ..
-                    rsync -avr --exclude='.git' --exclude='.github' --delete Task3/. Task2
-                    cd Task2
+                    rsync -avr --exclude='.git' --exclude='.github' --delete Task3/. TEST
+                    cd TEST
                     MSG=$(git log -1 --format=%B)
                     echo ${MSG}
                     git config user.email ${BUILD_REQUESTEDFOREMAIL}
                     git config user.name ${BUILD_REQUESTEDFOR}
                     git commit -m "${MSG}"
                     git tag -a $BUILD_ID -m "Released by ${BUILD_REQUESTEDFOR}"
-                    git push --mirror git@github.com:KuzRomanDocker/Task2.git
-                    rm -r Task3
-                    rm -r Task2
+                    git push --mirror git@github.com:KuzRomanDocker/TEST.git
+                    rm -r /Task3
+                    rm -r /TEST
                     '''
             }
         }
