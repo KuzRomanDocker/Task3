@@ -13,7 +13,7 @@ pipeline {
                     rsync -avr --exclude='.git' --exclude='.github' --delete Task3/. TEST
                     cd TEST
                     MSG=$(git log -1 --format=%B)
-                    echo ${MSG}
+                    echo "Hello Roman ${MSG}"
                     git config user.email ${BUILD_REQUESTEDFOREMAIL}
                     git config user.name ${BUILD_REQUESTEDFOR}
                     git commit -m "${MSG}"
