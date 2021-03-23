@@ -11,7 +11,7 @@ pipeline {
                     git clone https://github.com/KuzRomanDocker/Task3.git
                     git clone https://github.com/KuzRomanDocker/Task2.git
                     cd ..
-                    rsync -avr --exclude='.git' --exclude='.github' --delete sTask3./. Task2
+                    rsync -avr --exclude='.git' --exclude='.github' --delete sTask3/. Task2
                     cd Task2
                     MSG=$(git log -1 --format=%B)
                     echo ${MSG}
