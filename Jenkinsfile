@@ -15,7 +15,7 @@ pipeline {
                     MSG=$(git log -1 --format=%B)
                     echo {$MSG}
                     echo ${BUILD_REQUESTEDFOREMAIL}
-                    echo "Hello
+                    echo "Hello"
                     echo ${BUILD_REQUESTEDFOR}
                     git config user.email ${BUILD_REQUESTEDFOREMAIL}
                     git config user.name ${BUILD_REQUESTEDFOR}
