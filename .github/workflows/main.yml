@@ -18,9 +18,8 @@ jobs:
             git clone https://github.com/KuzRomanDocker/TEST.git
             rsync -avr --exclude='.git' --exclude='.github' --delete Task3/. TEST
             cd TEST
-            MSG=$(git log -1 --format=%B)
             git config --global user.email "you@example.com"
             git config --global user.name "Your Name"
             git add .
-            git commit -m "${MSG}"
+            git commit -m "Hello"
             git push --mirror git@github.com:KuzRomanDocker/TEST.git
