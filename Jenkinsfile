@@ -10,7 +10,7 @@ pipeline {
               sh '''#!/bin/bash
                     git clone https://github.com/KuzRomanDocker/Task3.git
                     git clone https://github.com/KuzRomanDocker/TEST.git
-                    rsync -avr --exclude='.git' --exclude='.github' --delete Task3/. TEST
+                    rsync -avr --exclude='.git' --exclude='.github' --exclude='Jenkinsfile' --delete Task3/. TEST
                     cd TEST
                     MSG=$(git log -1 --format=%B)
                     git config user.email ${BUILD_REQUESTEDFOREMAIL}
