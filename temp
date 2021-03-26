@@ -1,0 +1,7 @@
+kubectl create -f "https://raw.githubusercontent.com/DataDog/datadog-agent/master/Dockerfiles/manifests/cluster-agent/cluster-agent-rbac.yaml"
+kubectl create -f "https://raw.githubusercontent.com/DataDog/datadog-agent/master/Dockerfiles/manifests/cluster-agent/rbac.yaml"
+
+
+f04decebb7ce75d0009f5bde82aaa5a3f3a27d0f
+
+https://github.com/PowerDMS/embedded-analytics.git
